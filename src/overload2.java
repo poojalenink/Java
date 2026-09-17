@@ -1,9 +1,9 @@
 
-abstract class overload2 {
+abstract class Employee {
     protected String name;
     protected int id;
 
-    overload2(String name, int id) {
+    Employee(String name, int id) {
         this.name = name;
         this.id = id;
     }
@@ -52,7 +52,7 @@ class Intern extends Employee {
 }
 
 
-public class Main {
+public class overload2 {
 
     
     public static void processPayroll(Employee[] employees) {
