@@ -1,3 +1,4 @@
+java
 abstract class overload2 {
     protected String name;
     protected int id;
@@ -7,10 +8,13 @@ abstract class overload2 {
         this.id = id;
     }
 
+    
     public abstract double calculatePay();
 }
 
+
 class FullTimeEmployee extends Employee {
+
     public FullTimeEmployee(String name, int id) {
         super(name, id);
     }
@@ -21,7 +25,9 @@ class FullTimeEmployee extends Employee {
     }
 }
 
+
 class ContractEmployee extends Employee {
+
     public ContractEmployee(String name, int id) {
         super(name, id);
     }
@@ -32,7 +38,9 @@ class ContractEmployee extends Employee {
     }
 }
 
+
 class Intern extends Employee {
+
     public Intern(String name, int id) {
         super(name, id);
     }
@@ -40,5 +48,37 @@ class Intern extends Employee {
     @Override
     public double calculatePay() {
         return 15000;
+    }
+}
+
+
+public class Main {
+
+    
+    public static void processPayroll(Employee[] employees) {
+
+        for (int i = 0; i < employees.length; i++) {
+
+            double pay = employees[i].calculatePay();
+
+            System.out.println(
+                "Name: " + employees[i].name +
+                ", ID: " + employees[i].id +
+                ", Pay: " + pay
+            );
+        }
+    }
+
+    public static void main(String[] args) {
+
+        
+        Employee[] employees = {
+            new FullTimeEmployee("Ravi", 101),
+            new ContractEmployee("Anu", 102),
+            new Intern("Kiran", 103)
+        };
+
+        // Call processPayroll()
+        processPayroll(employees);
     }
 }
