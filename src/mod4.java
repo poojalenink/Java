@@ -1,31 +1,43 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.awt.*;
+import java.awt.event.*;
 
-public class mod4 {
-    public static void main(String[] args) {
+class mod4 extends Frame implements ActionListener {
 
-        int sum = 0;
+    Button red;
+    Button blue;
+    Label label;
 
-        try {
-            File file = new File("numbers.txt");
-            Scanner sc = new Scanner(file);
+    mod4() {
 
-            while (sc.hasNext()) {
-                int num = sc.nextInt();
-                sum = sum + num;
-            }
+        red = new Button("Button 1");
+        blue = new Button("Button 2");
+        label = new Label("Choose a button");
 
-            sc.close();
+        setLayout(new FlowLayout());
 
-            System.out.println("Sum = " + sum);
+        add(red);
+        add(blue);
+        add(label);
 
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+        red.addActionListener(this);
+        blue.addActionListener(this);
 
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid data in file");
+        setSize(400, 200);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource() == red) {
+            label.setText("Button 1 clicked");
         }
+
+        if (e.getSource() == blue) {
+            label.setText("Button 2 clicked");
+        }
+    }
+
+    public static void main(String[] args) {
+        new mod4();
     }
 }
