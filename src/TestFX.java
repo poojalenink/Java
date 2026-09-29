@@ -27,4 +27,3 @@ public class TestFX extends Application{
         
     }
 }
-//javac --module-path "C:\Users\pooja\Downloads\javafx-27_windows-x64_bin-sdk\javafx-sdk-27\lib" --add-modules javafx.controls TestFX.java
